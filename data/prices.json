@@ -1,0 +1,11 @@
+{
+  "urgencia": 360,
+  "beija-flor": {
+    "online": 360,
+    "presencial": 360
+  },
+  "girassol": {
+    "online": 560,
+    "presencial": 660
+  }
+}

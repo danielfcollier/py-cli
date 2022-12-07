@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "name": "drageisa: Utilitário da Dra. Geisa",
+  "description": "Informações para o atendimento via WhatsApp do consultório da Dra. Geisa.",
+  "epilog": "Desenvolvido por Daniel Collier",
+  "params": [
+    {
+      "arg_short": "-n",
+      "arg_extended": "--nova",
+      "arg_help": "Novas pacientes"
+    },
+    {
+      "arg_short": "-c",
+      "arg_extended": "--consulta",
+      "arg_help": "Marcação de consultas"
+    },
+    {
+      "arg_short": "-p",
+      "arg_extended": "--paciente",
+      "arg_help": "Nome da paciente"
+    }
+  ]
+}
