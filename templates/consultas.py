@@ -1,60 +1,71 @@
-def getMessage(prices, n, name):
-  messages = [
-    f"""
-Olá {name},
+def getMessage(data, id):
+  messages = dict()
 
-A Dra. Geisa atende com Ginecologia Integrativa com *foco em Equilíbrio Hormonal Feminino*, que utiliza as bases da Medicina e Ginecologia Tradicionais ampliadas com a visão da Medicina Funcional, Modulação Hormonal Bioidêntica e Terapias Integrativas.
-""",
-    """
-Períodos de Atendimento Presencial em Florianópolis:
-> Manhã: Quarta-feira e Quinta-feira
-> Tarde: Quarta-feira, Quinta-feira e Sexta-feira
+  messages["cadastro"] = """
+Vou completar seu atendimento, preciso fazer seu pré-cadastro:
 
-Períodos de Atendimento Online:
-> Manhã e Tarde: Terça-feira, Quarta-feira e Quinta-feira
-""",
-    """
-Segue um vídeo que a Dra. Geisa preparou para as novas pacientes:
-""",
-    """
-(o video!)
-""",
-    f"""
-Seguem os valores das consultas, *Consultas e Seguimentos - Sem Retornos*.
+NOME COMPLETO
 
-*Consulta Presencial*
+DATA DE NASCIMENTO
 
-🌿 Modalidade Artemísia de *25 min*
+CPF
 
-> Consulta Ginecológica focada no exame físico ou queixas pontuais de urgência. Valor: R$ {prices["urgencia"]}
+RG
 
-✨ Modalidade Beija-flor de *45 min*
+EMAIL
 
-> Indicada para 1ª consulta ou seguimento de tratamento com enfoque em Medicina Funcional. Para essa modalidade, veja também a opção de Consulta Online. Valor: R$ {prices["beija-flor"]["presencial"]}
+CEP
 
-*Consulta Online*
+---
 
-✨ Modalidade Beija-flor de *45 min*
-
-> Indicada para 1ª consulta ou seguimento de tratamento com enfoque em Medicina Funcional. Valor: R$ {prices["beija-flor"]["online"]}
-
-🌻Modalidade Girassol de *90 min*
-
-> Indicada para pacientes em momentos sensíveis para um olhar mais aprofundado de exames e orientações médicas. Valor: de R$ {prices["girassol"]["presencial"]} por R$ {prices["girassol"]["online"]}
-""",
-    """
-Períodos de Atendimento Presencial em Florianópolis:
-> Manhã: Quarta-feira e Quinta-feira
-> Tarde: Quarta-feira, Quinta-feira e Sexta-feira
-
-Períodos de Atendimento Online:
-> Manhã e Tarde: Terça-feira, Quarta-feira e Quinta-feira
+TELEFONE (só se contato da paciente for por email)
 """
-  ]
 
-  required_message = int(n, 10)
-  if messages[required_message]:
-    print(messages[required_message - 1])
+  messages["prontuario"] = """
+Combinado. Vou abrir o prontuário e já lhe passo as informações.
+"""
+
+  messages["online"] = f"""
+*Guarde as orientações.*
+Segue o link para atendimento da sua consulta online:
+
+{data["meet-link"]}
+
+*POR FAVOR, LEIA TODOS OS PONTOS:*
+
+- Certifique-se da sua conexão de internet 10 minutos antes da consulta.
+
+- Caso vá se consultar utilizando seu celular, acesse o link antes e instale o aplicativo solicitado (Google Meet).
+
+- Algumas vezes pelo celular é preciso clicar duas vezes no link.
+
+- APERTE o botão *Pedir p/ participar* e aguarde.
+
+- Eventualmente Pode ser que a Dra. Geisa se atrase por estar finalizando outra consulta, pedimos que aguarde.
+
+- Em caso de problemas com o Google Meet, a Dra. Geisa entrará em contato aqui pelo WhatsApp.
+"""
+
+  messages["agenda"] = f"""
+Sua consulta está agendada para sexta-feira dia *{data["dia"]} às {data["hora"]}*.
+"""
+
+  messages["pagamento"] = f"""
+CONFIRMAÇÃO FINAL
+
+É feita mediante o *envio do comprovante* da confirmação financeira durante a marcação da consulta, *vencimento para amanhã*.. Se você precisar, poderá remarcar sua consulta.
+
+As orientações de pagamento são enviadas *por email*, você poderá realizar o pagamento por boleto bancário, cartão de crédito ou débito.
+
+Em caso de dificuldade para acessar o email, por favor me avise, posso enviar por aqui.
+"""
+
+  if id == "all":
+    for key in messages:
+      print(messages[key])
   else:
-    for message in messages:
-      print(message)
+    options = ["all"] + list(messages.keys())
+    default_message = f"É necessário incluir uma opção válida! Opções: {options}"
+
+    message = messages.get(id, default_message)
+    print(message)

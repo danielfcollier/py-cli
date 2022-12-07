@@ -1,0 +1,41 @@
+#!/bin/python3
+
+import os
+
+from templates import *
+from base_cli import base_cli
+from utils.read_json import read_json
+
+try:
+  ROOT_DIR = os.path.dirname(os.readlink(__file__))
+except:
+  ROOT_DIR = os.getcwd()
+
+DEFAULT_CONSULTA_DIA = "dd/MM"
+DEFAULT_CONSULTA_HORA = "Xh"
+
+def main():
+  args = base_cli(ROOT_DIR)
+
+  prices_data = read_json(ROOT_DIR, "data", "prices.json")
+
+  if args.info:
+    infos.getMessage(prices_data, args.info)
+
+  if args.paciente:
+    pacientes.getMessage(prices_data, args.message, args.paciente)
+
+  if args.consulta:
+    data = get_consulta_data(args, prices_data)
+    consultas.getMessage(data, args.consulta)
+
+def get_consulta_data(args, prices_data):
+  data = read_json(ROOT_DIR, "data", "agenda.json")
+  data["prices"] = prices_data
+  data["dia"] = args.dia if args.dia else DEFAULT_CONSULTA_DIA
+  data["hora"] = args.hora if args.hora else DEFAULT_CONSULTA_HORA
+
+  return data
+
+if __name__ == "__main__":
+  main()

@@ -1,11 +1,16 @@
 {
-  "urgencia": 360,
+  "urgencia": 410,
   "beija-flor": {
     "online": 360,
-    "presencial": 360
+    "presencial": 410
   },
   "girassol": {
-    "online": 560,
-    "presencial": 660
+    "online": 720,
+    "presencial": 820
+  },
+  "diu": 920,
+  "pre-diu": {
+    "online": 220,
+    "presencial": 300
   }
 }

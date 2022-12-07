@@ -1,1 +1,1 @@
-__all__ = ["novas", "consultas"]
+__all__ = ["consultas", "infos", "pacientes"]
