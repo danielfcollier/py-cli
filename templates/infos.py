@@ -1,7 +1,7 @@
 def getMessage(prices, id):
-  messages = dict()
+    messages = dict()
 
-  messages["planos"] = """
+    messages["planos"] = """
 A Dra. Geisa atende com hora marcada e com consultas mais longas de no mínimo 45 minutos, o que só é possível no formato de consultas particulares.
 
 *Reembolso de Consultas Particulares*
@@ -11,7 +11,7 @@ A Dra. Geisa oferece o recibo da consulta, que pode ser entregue ao seu plano de
 Por favor, verifique o seu contrato e as possibilidades de reembolso. Estamos à disposição para orientá-la e tirar dúvidas.
 """
 
-  messages["calendario"] = """
+    messages["calendario"] = """
 No momento, a Dra. Geisa está atendendo no seguinte formato:
 
 > Online: 3 semanas por mês 
@@ -30,7 +30,7 @@ Previsão Florianópolis:
 > Julho: dias 28, 29 e 30
 """
 
-  messages["agenda"] = """
+    messages["agenda"] = """
 Períodos de Atendimento Presencial em Florianópolis:
 > Manhã: Quarta-feira e Quinta-feira
 > Tarde: Quarta-feira, Quinta-feira e Sexta-feira
@@ -39,7 +39,7 @@ Períodos de Atendimento Online:
 > Manhã e Tarde: Terça-feira, Quarta-feira e Quinta-feira
 """
 
-  messages["consultas"] = """
+    messages["consultas"] = """
 Informações sobre o Acompanhamento:
 
 🍃 De acordo com suas necessidades, você receberá  a orientação para marcar uma nova consulta de 45 min dentro de um prazo de 10 a 90 dias.
@@ -53,7 +53,7 @@ Informações sobre o Acompanhamento:
 💌 O email é o canal de comunicação direto com a Dra Geisa para tirar dúvidas e quaisquer orientações que você precisar. Quando houver alguma alteração do preventivo, a Dra. lhe enviará orientações por email de como proceder.
 """
 
-  messages["diu"] = f"""
+    messages["diu"] = f"""
 Seguem as informações para colocação de DIU:
 
 - você precisa fazer uma consulta prévia para a Dra. Geisa conhecê-la, conferir se você está bem informada dos prós e contras do método pretendido, com informações completas acerca das opções de acordo com seu momento de vida, tirar suas dúvidas e então, para você estar segura da indicação do procedimento. A consulta pode ser online ou presencial:
@@ -71,7 +71,7 @@ Seguem as informações para colocação de DIU:
 > DIUs não-hormonais: Cobre | Cobre e Prata
 """
 
-  messages["artemisia"] = f"""
+    messages["artemisia"] = f"""
 Seguem os valores das consultas, *Consultas e Seguimentos - Sem Retornos*.
 
 *Consulta Online ou Presencial*
@@ -80,12 +80,12 @@ Seguem os valores das consultas, *Consultas e Seguimentos - Sem Retornos*.
 > Consulta Ginecológica focada no exame físico ou queixas pontuais de urgência. Valor: R$ {prices["urgencia"]}
 """
 
-  if id == "all":
-    for key in messages:
-      print(messages[key])
-  else:
-    options = ["all"] + list(messages.keys())
-    default_message = f"É necessário incluir uma opção válida! Opções: {options}"
+    if id == "all":
+        for key in messages:
+            print(messages[key])
+    else:
+        options = ["all"] + list(messages.keys())
+        default_message = f"É necessário incluir uma opção válida! Opções: {options}"
 
-    message = messages.get(id, default_message)
-    print(message)
+        message = messages.get(id, default_message)
+        print(message)

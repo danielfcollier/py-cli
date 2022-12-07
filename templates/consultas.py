@@ -1,7 +1,7 @@
 def getMessage(data, id):
-  messages = dict()
+    messages = dict()
 
-  messages["cadastro"] = """
+    messages["cadastro"] = """
 Vou completar seu atendimento, preciso fazer seu pré-cadastro:
 
 NOME COMPLETO
@@ -21,11 +21,11 @@ CEP
 TELEFONE (só se contato da paciente for por email)
 """
 
-  messages["prontuario"] = """
+    messages["prontuario"] = """
 Combinado. Vou abrir o prontuário e já lhe passo as informações.
 """
 
-  messages["online"] = f"""
+    messages["online"] = f"""
 *Guarde as orientações.*
 Segue o link para atendimento da sua consulta online:
 
@@ -46,11 +46,11 @@ Segue o link para atendimento da sua consulta online:
 - Em caso de problemas com o Google Meet, a Dra. Geisa entrará em contato aqui pelo WhatsApp.
 """
 
-  messages["agenda"] = f"""
+    messages["agenda"] = f"""
 Sua consulta está agendada para sexta-feira dia *{data["dia"]} às {data["hora"]}*.
 """
 
-  messages["pagamento"] = f"""
+    messages["pagamento"] = f"""
 CONFIRMAÇÃO FINAL
 
 É feita mediante o *envio do comprovante* da confirmação financeira durante a marcação da consulta, *vencimento para amanhã*.. Se você precisar, poderá remarcar sua consulta.
@@ -60,12 +60,12 @@ As orientações de pagamento são enviadas *por email*, você poderá realizar 
 Em caso de dificuldade para acessar o email, por favor me avise, posso enviar por aqui.
 """
 
-  if id == "all":
-    for key in messages:
-      print(messages[key])
-  else:
-    options = ["all"] + list(messages.keys())
-    default_message = f"É necessário incluir uma opção válida! Opções: {options}"
+    if id == "all":
+        for key in messages:
+            print(messages[key])
+    else:
+        options = ["all"] + list(messages.keys())
+        default_message = f"É necessário incluir uma opção válida! Opções: {options}"
 
-    message = messages.get(id, default_message)
-    print(message)
+        message = messages.get(id, default_message)
+        print(message)
