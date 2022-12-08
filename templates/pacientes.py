@@ -49,8 +49,16 @@ Períodos de Atendimento Online:
 
     try:
         required_message = int(n, 10)
-        print(messages[required_message - 1])
+        if required_message < len(messages):
+            print(messages[required_message - 1])
+        else:
+            raise Exception()
     except:
-        for index, message in enumerate(messages):
-            print(f"### MENSAGEM DE WHATSAPP {index + 1}:")
-            print(message)
+        if n == "all":
+            for index, message in enumerate(messages):
+                print(f"### MENSAGEM DE WHATSAPP {index + 1}:")
+                print(message)
+        else:
+            options = ["all"] + list(range(1, len(messages)))
+            default_message = f"É necessário incluir uma opção válida! Opções: {options}"
+            print(default_message)
